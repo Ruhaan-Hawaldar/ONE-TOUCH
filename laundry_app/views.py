@@ -16,6 +16,10 @@ def services(request):
 def pricing(request):
     return render(request, 'pricing.html')
 
+def contact(request):
+    return render(request, 'contact.html')
+
+
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from .models import Service, PickupRequest
