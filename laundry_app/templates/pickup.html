@@ -1,38 +1,88 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
 {% block content %}
 
-<div class="container mt-5">
-  <div class="row justify-content-center">
-    <div class="col-md-6">
-      <div class="card shadow">
-        <div class="card-body">
-          <h3 class="text-center mb-3">Book Free Pickup</h3>
+<section class="section">
+  <div class="container">
 
-          <form method="POST">
+    <!-- HEADER -->
+    <div class="text-center mb-5">
+      <h2 class="fw-bold">Book Free Pickup</h2>
+      <p class="text-muted fs-5">
+        Schedule your laundry pickup in just a few seconds
+      </p>
+    </div>
+
+    <div class="row justify-content-center">
+      <div class="col-md-7">
+
+        <div class="pickup-card">
+
+          <form method="post">
             {% csrf_token %}
-            <input class="form-control mb-3" name="name" placeholder="Full Name" required>
-            <input class="form-control mb-3" name="phone" placeholder="Mobile Number" required>
-            <textarea class="form-control mb-3" name="address" placeholder="Pickup Address" required></textarea>
-            <!-- <input class="form-control mb-3" name="service" placeholder="Service Required"> -->
-             <select class="form-select mb-3" name="service" required>
-  <option value="" disabled selected>Select Service Required</option>
-  <option value="Press/Iron">Press/Iron</option>
-  <option value="Laundry (Wash by KG)">Laundry (Wash by KG)</option>
-  <option value="Dry Cleaning">Dry Cleaning</option>
-  <option value="Steam Iron">Steam Iron</option>
-  <option value="Household Items">Household Items</option>
-  <option value="Shoe Cleaning">Shoe Cleaning</option>
-  <option value="Large Items">Large Items</option>
-</select>
 
-            <input type="date" class="form-control mb-3" name="pickup_date">
-            <button class="btn btn-success w-100">Submit Request</button>
+            <!-- NAME -->
+            <div class="mb-3">
+              <label class="form-label">Full Name</label>
+              <input type="text" name="name" class="form-control form-control-lg" placeholder="Enter your name" required>
+            </div>
+
+            <!-- PHONE -->
+            <div class="mb-3">
+              <label class="form-label">Mobile Number</label>
+              <input type="tel" name="phone" class="form-control form-control-lg" placeholder="Enter your mobile number" required>
+            </div>
+
+            <!-- ADDRESS -->
+            <div class="mb-3">
+              <label class="form-label">Pickup Address</label>
+              <textarea name="address" rows="3" class="form-control form-control-lg" placeholder="House no, society, area" required></textarea>
+            </div>
+
+            <!-- SERVICE -->
+            <div class="mb-3">
+              <label class="form-label">Service Required</label>
+              <select name="service" class="form-select form-select-lg" required>
+                <option value="">Select Service</option>
+                {% for service in services %}
+                  <option value="{{ service.id }}">{{ service.name }}</option>
+                {% endfor %}
+              </select>
+            </div>
+
+            <!-- DATE -->
+            <div class="mb-3">
+              <label class="form-label">Preferred Pickup Date</label>
+              <input type="date" name="pickup_date" class="form-control form-control-lg" required>
+            </div>
+
+            <!-- NOTES -->
+            <div class="mb-4">
+              <label class="form-label">Additional Notes (Optional)</label>
+              <textarea name="notes" rows="2" class="form-control form-control-lg" placeholder="Any special instructions?"></textarea>
+            </div>
+
+            <!-- SUBMIT -->
+            <div class="d-grid">
+              <button type="submit" class="btn btn-success btn-lg">
+                🚚 Confirm Pickup Request
+              </button>
+            </div>
+
           </form>
 
         </div>
+
+        <!-- TRUST STRIP -->
+        <div class="trust-strip text-center mt-4">
+          <span>✔ Free Pickup</span>
+          <span>✔ Hygienic Wash</span>
+          <span>✔ On-Time Delivery</span>
+        </div>
+
       </div>
     </div>
+
   </div>
-</div>
+</section>
 
 {% endblock %}

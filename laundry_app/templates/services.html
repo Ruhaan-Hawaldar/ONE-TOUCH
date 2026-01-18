@@ -1,71 +1,102 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
 {% block content %}
 
-<section class="section section-light">
+<section class="section">
   <div class="container">
-    <h2 class="text-center fw-bold mb-5">Our Services</h2>
 
-    <div class="row g-4 text-center">
+    <!-- PAGE HEADER -->
+    <div class="text-center mb-5">
+      <h2 class="fw-bold">Our Services</h2>
+      <p class="text-muted fs-5">
+        Professional laundry care with free pickup & delivery
+      </p>
+    </div>
 
-      <div class="col-6 col-md-4 col-lg-2">
-        <div class="category-card">
-          <h1>🧺</h1>
-          <h6 class="fw-semibold mt-2">Laundry</h6>
-          <p class="small">Wash by KG, Hygienic Cleaning</p>
+    <!-- SERVICES GRID -->
+    <div class="row g-4">
+
+      <!-- Laundry by KG -->
+      <div class="col-md-4">
+        <div class="service-card">
+          <div class="service-icon">🧺</div>
+          <h5 class="service-title">Laundry by KG</h5>
+          <p class="service-desc">
+            Hygienic washing using high-quality detergents.
+            Ideal for daily wear and bulk clothes.
+          </p>
         </div>
       </div>
 
-      <div class="col-6 col-md-4 col-lg-2">
-        <div class="category-card">
-          <h1>👔</h1>
-          <h6 class="fw-semibold mt-2">Dry Cleaning</h6>
-          <p class="small">Premium Fabric Care</p>
+      <!-- Dry Cleaning -->
+      <div class="col-md-4">
+        <div class="service-card">
+          <div class="service-icon">👔</div>
+          <h5 class="service-title">Dry Cleaning</h5>
+          <p class="service-desc">
+            Gentle dry cleaning for delicate and premium fabrics
+            with expert handling.
+          </p>
         </div>
       </div>
 
-      <div class="col-6 col-md-4 col-lg-2">
-        <div class="category-card">
-          <h1>🔥</h1>
-          <h6 class="fw-semibold mt-2">Steam Iron</h6>
-          <p class="small">Crisp Finish Guaranteed</p>
+      <!-- Steam Iron -->
+      <div class="col-md-4">
+        <div class="service-card">
+          <div class="service-icon">🔥</div>
+          <h5 class="service-title">Steam Iron</h5>
+          <p class="service-desc">
+            Crisp steam ironing to give your clothes
+            a fresh and professional finish.
+          </p>
         </div>
       </div>
 
-      <div class="col-6 col-md-4 col-lg-2">
-        <div class="category-card">
-          <h1>🏠</h1>
-          <h6 class="fw-semibold mt-2">Household</h6>
-          <p class="small">Curtains, Bedsheets, Blankets</p>
+      <!-- Household Items -->
+      <div class="col-md-4">
+        <div class="service-card">
+          <div class="service-icon">🏠</div>
+          <h5 class="service-title">Household Items</h5>
+          <p class="service-desc">
+            Curtains, blankets, bed sheets, carpets
+            cleaned with special care.
+          </p>
         </div>
       </div>
 
-      <div class="col-6 col-md-4 col-lg-2">
-        <div class="category-card">
-          <h1>👟</h1>
-          <h6 class="fw-semibold mt-2">Shoes</h6>
-          <p class="small">Sports, Leather, Suede</p>
+      <!-- Shoes -->
+      <div class="col-md-4">
+        <div class="service-card">
+          <div class="service-icon">👟</div>
+          <h5 class="service-title">Shoe Cleaning</h5>
+          <p class="service-desc">
+            Deep cleaning and deodorizing for sports,
+            leather, and premium shoes.
+          </p>
         </div>
       </div>
 
-      <div class="col-6 col-md-4 col-lg-2">
-        <div class="category-card">
-          <h1>🧥</h1>
-          <h6 class="fw-semibold mt-2">Large Items</h6>
-          <p class="small">Carpets, Quilts, Curtains</p>
+      <!-- Large Items -->
+      <div class="col-md-4">
+        <div class="service-card">
+          <div class="service-icon">🧥</div>
+          <h5 class="service-title">Large Items</h5>
+          <p class="service-desc">
+            Jackets, coats, quilts, and heavy garments
+            cleaned with advanced techniques.
+          </p>
         </div>
       </div>
 
     </div>
+
+    <!-- CTA -->
+    <div class="text-center mt-5">
+      <a href="/book-pickup/" class="btn btn-success btn-lg px-5">
+        🚚 Book Free Pickup
+      </a>
+    </div>
+
   </div>
-</section>
-
-<section class="section text-center">
-  <h3 class="fw-bold">🚚 Free Pickup & Delivery</h3>
-  <p class="fs-5 mt-2">Available for all services</p>
-
-  <a href="/book-pickup/" class="btn btn-success btn-lg mt-3 px-5">
-    Book Pickup
-  </a>
 </section>
 
 {% endblock %}

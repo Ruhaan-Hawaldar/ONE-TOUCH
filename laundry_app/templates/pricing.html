@@ -1,101 +1,154 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
 {% block content %}
 
-<!-- PAGE HEADER -->
-<section class="section section-dark text-center">
+<section class="section">
   <div class="container">
-    <h1 class="fw-bold">Pricing</h1>
-    <p class="fs-5 mt-2">Transparent & Affordable Rates</p>
-  </div>
-</section>
 
-<!-- DRY CLEANING -->
-<section class="section section-light">
-  <div class="container">
-    <h2 class="fw-bold text-center mb-5">Dry Cleaning Prices</h2>
+    <!-- HEADER -->
+    <div class="text-center mb-5">
+      <h2 class="fw-bold">Our Pricing</h2>
+      <p class="text-muted fs-5">
+        Transparent pricing with free pickup & delivery
+      </p>
+    </div>
 
     <div class="row g-4">
 
-      <div class="col-md-3">
-        <div class="category-card">
-          <h5 class="category-title">👔 Men Wear</h5>
+      <!-- WASH BY KG -->
+      <div class="col-md-4">
+        <div class="pricing-card">
+          <div class="pricing-header">
+            <h5>🧺 Wash by KG</h5>
+            <p class="pricing-sub">Best for daily clothes</p>
+          </div>
 
-          <div class="price-item"><span>Shirt / T-Shirt</span><span class="price">₹50</span></div>
-          <div class="price-item"><span>Trouser / Jeans</span><span class="price">₹50</span></div>
-          <div class="price-item"><span>Jacket</span><span class="price">₹150</span></div>
+          <div class="pricing-body">
+            <div class="price-row">
+              <span>Wash & Fold</span>
+              <span class="price">₹60 / KG</span>
+            </div>
+            <div class="price-row">
+              <span>Wash & Iron</span>
+              <span class="price">₹90 / KG</span>
+            </div>
+            <div class="price-row">
+              <span>Minimum Order</span>
+              <span class="price">3 KG</span>
+            </div>
+          </div>
         </div>
       </div>
 
-      <div class="col-md-3">
-        <div class="category-card">
-          <h5 class="category-title">👗 Women Wear</h5>
+      <!-- DRY CLEANING -->
+      <div class="col-md-4">
+        <div class="pricing-card highlight">
+          <div class="pricing-header">
+            <h5>👔 Dry Cleaning</h5>
+            <p class="pricing-sub">Delicate & premium care</p>
+          </div>
 
-          <div class="price-item"><span>Kurta</span><span class="price">₹50</span></div>
-          <div class="price-item"><span>Salwaar</span><span class="price">₹70+</span></div>
-          <div class="price-item"><span>Saree</span><span class="price">₹160+</span></div>
+          <div class="pricing-body">
+            <div class="price-row">
+              <span>Shirt / T-Shirt</span>
+              <span class="price">₹50</span>
+            </div>
+            <div class="price-row">
+              <span>Trouser / Jeans</span>
+              <span class="price">₹50</span>
+            </div>
+            <div class="price-row">
+              <span>Jacket</span>
+              <span class="price">₹150+</span>
+            </div>
+          </div>
         </div>
       </div>
 
-      <div class="col-md-3">
-        <div class="category-card">
-          <h5 class="category-title">🏠 Household</h5>
+      <!-- HOUSEHOLD -->
+      <div class="col-md-4">
+        <div class="pricing-card">
+          <div class="pricing-header">
+            <h5>🏠 Household Items</h5>
+            <p class="pricing-sub">Large & bulky items</p>
+          </div>
 
-          <div class="price-item"><span>Blanket (S / D)</span><span class="price">₹200 / ₹330</span></div>
-          <div class="price-item"><span>Bed Sheets</span><span class="price">₹100 / ₹150</span></div>
-          <div class="price-item"><span>Carpet</span><span class="price">₹250+</span></div>
+          <div class="pricing-body">
+            <div class="price-row">
+              <span>Blanket (Single)</span>
+              <span class="price">₹200</span>
+            </div>
+            <div class="price-row">
+              <span>Blanket (Double)</span>
+              <span class="price">₹330</span>
+            </div>
+            <div class="price-row">
+              <span>Carpet</span>
+              <span class="price">₹250+</span>
+            </div>
+          </div>
         </div>
       </div>
 
-      <div class="col-md-3">
-        <div class="category-card">
-          <h5 class="category-title">👟 Shoes</h5>
+      <!-- STEAM IRON -->
+      <div class="col-md-6">
+        <div class="pricing-card">
+          <div class="pricing-header">
+            <h5>🔥 Steam Iron</h5>
+            <p class="pricing-sub">Sharp & wrinkle-free finish</p>
+          </div>
 
-          <div class="price-item"><span>Sports Shoes</span><span class="price">₹200</span></div>
-          <div class="price-item"><span>Leather Shoes</span><span class="price">₹250</span></div>
-          <div class="price-item"><span>Suede Leather</span><span class="price">₹350</span></div>
+          <div class="pricing-body">
+            <div class="price-row">
+              <span>Shirt / T-Shirt</span>
+              <span class="price">₹15</span>
+            </div>
+            <div class="price-row">
+              <span>Trouser / Jeans</span>
+              <span class="price">₹20</span>
+            </div>
+            <div class="price-row">
+              <span>Kurta</span>
+              <span class="price">₹25</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SHOES -->
+      <div class="col-md-6">
+        <div class="pricing-card">
+          <div class="pricing-header">
+            <h5>👟 Shoe Cleaning</h5>
+            <p class="pricing-sub">Deep clean & deodorize</p>
+          </div>
+
+          <div class="pricing-body">
+            <div class="price-row">
+              <span>Sports Shoes</span>
+              <span class="price">₹200</span>
+            </div>
+            <div class="price-row">
+              <span>Leather Shoes</span>
+              <span class="price">₹250</span>
+            </div>
+            <div class="price-row">
+              <span>Suede / Premium</span>
+              <span class="price">₹350+</span>
+            </div>
+          </div>
         </div>
       </div>
 
     </div>
-  </div>
-</section>
 
-<!-- WASH BY KG -->
-<section class="section section-dark">
-  <div class="container">
-    <h2 class="fw-bold text-center mb-5">Wash by KG Pricing</h2>
-
-    <div class="row g-4 text-center">
-
-      <div class="col-md-4">
-        <div class="category-card">
-          <h4>3 – 5 KG</h4>
-          <p class="fs-5">Wash & Fold: <strong>₹180 – ₹300</strong></p>
-          <p class="fs-5">Wash & Iron: <strong>₹270 – ₹450</strong></p>
-        </div>
-      </div>
-
-      <div class="col-md-4">
-        <div class="category-card">
-          <h4>7 – 10 KG</h4>
-          <p class="fs-5">Wash & Fold: <strong>₹420 – ₹500</strong></p>
-          <p class="fs-5">Wash & Iron: <strong>₹630 – ₹700</strong></p>
-        </div>
-      </div>
-
-      <div class="col-md-4">
-        <div class="category-card">
-          <h4>12 – 14 KG</h4>
-          <p class="fs-5">Wash & Fold: <strong>₹600 – ₹660</strong></p>
-          <p class="fs-5">Wash & Iron: <strong>₹870 – ₹940</strong></p>
-        </div>
-      </div>
-
+    <!-- CTA -->
+    <div class="text-center mt-5">
+      <a href="/book-pickup/" class="btn btn-success btn-lg px-5">
+        🚚 Book Free Pickup
+      </a>
     </div>
+
   </div>
 </section>
-
-<!-- CTA -->
-
 
 {% endblock %}
