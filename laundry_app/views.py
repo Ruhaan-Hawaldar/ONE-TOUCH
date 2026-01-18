@@ -19,7 +19,6 @@ def pricing(request):
 def contact(request):
     return render(request, 'contact.html')
 
-
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from .models import Service, PickupRequest
@@ -28,14 +27,17 @@ import urllib.parse
 OWNER_WHATSAPP = "918530818250"
 
 def book_pickup(request):
-    services = Service.objects.all()  # ✅ THIS WAS MISSING
+    services = Service.objects.all()  # ✅ for dropdown
 
     if request.method == 'POST':
+        service_id = request.POST.get('service')
+        service_obj = Service.objects.get(id=service_id)  # ✅ FIX
+
         pickup = PickupRequest.objects.create(
             name=request.POST['name'],
             phone=request.POST['phone'],
             address=request.POST['address'],
-            service_id=request.POST['service'],  # ✅ FK FIX
+            service=service_obj,  # ✅ pass object, not string
             pickup_date=request.POST['pickup_date'],
             notes=request.POST.get('notes', ''),
         )
@@ -51,8 +53,10 @@ Pickup Date: {pickup.pickup_date}
 Address:
 {pickup.address}
 """
-
-        whatsapp_url = f"https://wa.me/{OWNER_WHATSAPP}?text={urllib.parse.quote(message)}"
+        whatsapp_url = (
+            f"https://wa.me/{OWNER_WHATSAPP}"
+            f"?text={urllib.parse.quote(message)}"
+        )
 
         messages.success(
             request,
@@ -61,6 +65,4 @@ Address:
 
         return redirect(whatsapp_url)
 
-    return render(request, 'pickup.html', {
-        'services': services  # ✅ THIS FIXES DROPDOWN
-    })
+    return render(request, 'pickup.html', {'services': services})
