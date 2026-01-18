@@ -16,66 +16,39 @@ def services(request):
 def pricing(request):
     return render(request, 'pricing.html')
 
-
-def book_pickup(request):
-    if request.method == 'POST':
-        PickupRequest.objects.create(
-            name=request.POST['name'],
-            phone=request.POST['phone'],
-            address=request.POST['address'],
-            service=request.POST['service'],
-            pickup_date=request.POST['pickup_date'],
-            notes=request.POST.get('notes', ''),
-        )
-
-        # ✅ SUCCESS MESSAGE
-        messages.success(
-            request,
-            "✅ Pickup booked successfully! Our team will contact you shortly."
-        )
-
-        return redirect('book_pickup')  # stay on same page
-
-    return render(request, 'pickup.html')
-
-
-def contact(request):
-    return render(request, 'contact.html')
-
 from django.shortcuts import render, redirect
 from django.contrib import messages
-from .models import PickupRequest
+from .models import Service, PickupRequest
 import urllib.parse
 
-OWNER_WHATSAPP = "918530818250"  # change if needed
+OWNER_WHATSAPP = "918530818250"
 
 def book_pickup(request):
+    services = Service.objects.all()  # ✅ THIS WAS MISSING
+
     if request.method == 'POST':
         pickup = PickupRequest.objects.create(
             name=request.POST['name'],
             phone=request.POST['phone'],
             address=request.POST['address'],
-            service=request.POST['service'],
+            service_id=request.POST['service'],  # ✅ FK FIX
             pickup_date=request.POST['pickup_date'],
             notes=request.POST.get('notes', ''),
         )
 
-        # WhatsApp message content
         message = f"""
 New Pickup Request 🚚
 
 Name: {pickup.name}
 Phone: {pickup.phone}
-Service: {pickup.service}
+Service: {pickup.service.name}
 Pickup Date: {pickup.pickup_date}
 
 Address:
 {pickup.address}
 """
 
-        encoded_message = urllib.parse.quote(message)
-
-        whatsapp_url = f"https://wa.me/{OWNER_WHATSAPP}?text={encoded_message}"
+        whatsapp_url = f"https://wa.me/{OWNER_WHATSAPP}?text={urllib.parse.quote(message)}"
 
         messages.success(
             request,
@@ -84,6 +57,6 @@ Address:
 
         return redirect(whatsapp_url)
 
-    return render(request, 'pickup.html')
-
-
+    return render(request, 'pickup.html', {
+        'services': services  # ✅ THIS FIXES DROPDOWN
+    })
