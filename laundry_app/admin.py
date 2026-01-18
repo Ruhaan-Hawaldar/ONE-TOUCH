@@ -21,4 +21,6 @@ class PickupRequestAdmin(admin.ModelAdmin):
     list_filter = ('status', 'service', 'pickup_date')
     search_fields = ('name', 'phone', 'address')
     list_editable = ('status',)
+    readonly_fields = ('created_at',)
     ordering = ('-created_at',)
+    list_per_page = 25
